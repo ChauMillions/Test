@@ -1,0 +1,50 @@
+package Exercise;
+
+import java.util.Scanner;
+
+class Student{
+	private String name;
+	private double mark;
+	
+	public void enter() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter name of Student:");
+		name = sc.nextLine();
+		do {
+			System.out.print("Enter mark of student:");
+			mark = sc.nextDouble();
+		}while(mark < 0 || mark > 10);
+	}
+	
+	public void show() {
+		System.out.println(name + " " + mark + " " + seive());
+	}
+	
+	public String seive() {
+		if(mark < 5) return "Weak";
+		else if(mark >= 5 && mark < 6.5) return "Average";
+		else if (mark >= 6.5 && mark < 8) return "Good";
+		else return "Very Good";
+	}
+	
+	public Student(String x, double y){
+		name = x;
+		mark = y;
+	}
+	
+	public Student(){
+		name = "Nguyen Van A";
+		mark = 5.0;
+	}
+}
+public class SinhVien {
+	public static void main(String[] args) {
+		Student x = new Student();
+		x.enter();
+		x.show();
+		Student y = new Student("Tran Van Tuyen",6.7);
+		y.show();
+		Student z = new Student();
+		z.show();
+	}
+}
